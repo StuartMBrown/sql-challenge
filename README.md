@@ -1,4 +1,4 @@
-# PH
+# PH, thanks to Jacob Dolinsky for assistance
 The data containing employee and department information were imported from several CSVs. Through a PostgreSQL database I created several tables to illustrate a series of relationships between employees and departments. The PHSQL folder contains tables setup, a relationship diagram and pgerd importer, and various queries of interest. The Starter_Code 5 folder contains our data, commissioned for Pewlett-Hackard by Mockaroo, LLC in 2022.
 
 The following SQL queries piqued my interest:
