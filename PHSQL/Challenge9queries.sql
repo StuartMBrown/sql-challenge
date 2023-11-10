@@ -30,3 +30,15 @@ order by 2;
 select last_name, count(last_name) as allof
 from employees group by last_name
 order by allof desc;
+
+--What are the employee and department numbers, first names, surnames, and department names for all of our employees?
+with base_table as (select employees.emp_no, employees.last_name, employees.first_name, dept_emp.dept_no, departments.dept_name
+from dept_emp join employees 
+on dept_emp.emp_no = employees.emp_no
+join departments
+on dept_emp.dept_no = departments.dept_no
+order by 1)
+select emp_no, last_name, first_name, ARRAY_TO_STRING(array_agg(dept_no), ', ') as "department number", 
+ARRAY_TO_STRING(array_agg(dept_name), ', ') as "department name"
+from base_table
+group by emp_no, last_name, first_name;
